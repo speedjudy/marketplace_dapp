@@ -1,0 +1,218 @@
+{
+	"compiler": {
+		"version": "0.8.19+commit.7dd6d404"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_factory",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "storeAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "StoreCreated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amountInUSD",
+						"type": "uint256"
+					}
+				],
+				"name": "_convertUSDToETH",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_newFee",
+						"type": "uint256"
+					}
+				],
+				"name": "changeCreateStoreFee",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_storeMetaData",
+						"type": "string"
+					}
+				],
+				"name": "createStore",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "createStoreFee",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "factory",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllStores",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "storeAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "owner",
+								"type": "address"
+							}
+						],
+						"internalType": "struct StoreFactory.StoreInfo[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "stores",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "storeAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"marketplace-contract/StoreFactory.sol": "StoreFactory"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"marketplace-contract/IFactory.sol": {
+			"keccak256": "0x594bedd6dc22251641d10a27e006be396eb9198f46ddad4212c5c6f61e56dca4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bc8a583bc4d10fa4539b0e7ffc55d8cbd91ecad7961ee31a978dd09704df9252",
+				"dweb:/ipfs/QmRnMzutGQnewxheXf1F8xWrsWxsBXxp6C8h81eu8LSqcK"
+			]
+		},
+		"marketplace-contract/Store.sol": {
+			"keccak256": "0x947993f68d095c6a6300ac18351f2c82054f614988b4ba4e1d3e30f8e1a8979e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fe61d79f8b30549eeaf601f8e7745b162c04cc6985664b3fc7ff022da09fd4b7",
+				"dweb:/ipfs/QmWsA2mcP6nqjTcTbgHDbSHsTvskLxa2UGqAxkGiY5ovhf"
+			]
+		},
+		"marketplace-contract/StoreFactory.sol": {
+			"keccak256": "0x2c0189da9426947968df270f83c33c13217849acf40534292f95c5bb51b41e67",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9561798efccc0c411deaeff623cb4d36f6f9d9557bb4172054144b71c70390f7",
+				"dweb:/ipfs/QmeqoC14PQ1ANN6LzY27G2vx9RnxhfPk4B5Ck4uzu3inzU"
+			]
+		}
+	},
+	"version": 1
+}

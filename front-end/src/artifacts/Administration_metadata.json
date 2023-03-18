@@ -1,0 +1,271 @@
+{
+	"compiler": {
+		"version": "0.8.19+commit.7dd6d404"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_ethUsdPriceFeed",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "admin",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "auctionMarketContractAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_newFee",
+						"type": "uint256"
+					}
+				],
+				"name": "changeAuctionFee",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_newFee",
+						"type": "uint256"
+					}
+				],
+				"name": "changeMarketFee",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_newFee",
+						"type": "uint256"
+					}
+				],
+				"name": "changeStoreFee",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amountInUSD",
+						"type": "uint256"
+					}
+				],
+				"name": "convertUSDToETH",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ethUsdPriceFeed",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getPrice",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "marketContractAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_auctionsContractAddress",
+						"type": "address"
+					}
+				],
+				"name": "setAuctionMarketContractAddress",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_mainMarketAddress",
+						"type": "address"
+					}
+				],
+				"name": "setMarketContractAddress",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_storeFactoryAddress",
+						"type": "address"
+					}
+				],
+				"name": "setStoreFactoryAddress",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "storeFactoryAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdrawBalance",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"getPrice()": {
+					"details": "Get current ETH/USD price using ChainLink price feed",
+					"returns": {
+						"_0": "the ETH/USD price , the number of decimals used for this price"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"marketplace-contract/Administration.sol": "Administration"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol": {
+			"keccak256": "0x6e6e4b0835904509406b070ee173b5bc8f677c19421b76be38aea3b1b3d30846",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b3beaa37ee61e4ab615e250fbf01601ae481de843fd0ef55e6b44fd9d5fff8a7",
+				"dweb:/ipfs/QmeZUVwd26LzK4Mfp8Zba5JbQNkZFfTzFu1A6FVMMZDg9c"
+			]
+		},
+		"marketplace-contract/Administration.sol": {
+			"keccak256": "0xef4823d3252ef051d9f1a958c7715f0801704366b4f3cb6c97659c11e6f3bb12",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7ecb2e51106edc6e25b86afd942abfd47f4dd3ca2f1cc8919f67d39413c2a960",
+				"dweb:/ipfs/QmRsENE4qhtq4xj49y7aMeuck8Tg3tUUCmEA8gkMo59eVr"
+			]
+		},
+		"marketplace-contract/IMarket.sol": {
+			"keccak256": "0x59afe85a464c5e3248a889c0f49891834ee6a4eb7749d4459076e7e309cc06f7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://486846d7504a55b4f212e8627a4f712aea551c9e5f961c0d65d4c5922b2f8390",
+				"dweb:/ipfs/Qme49UwBoJuvQHjAwyBBoMHrZupTHPv7oQJJZ3WN3pcf8S"
+			]
+		}
+	},
+	"version": 1
+}

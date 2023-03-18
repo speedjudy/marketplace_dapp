@@ -1,0 +1,410 @@
+{
+	"compiler": {
+		"version": "0.8.19+commit.7dd6d404"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_factory",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "AuctionEnded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "seller",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "AuctionStarted",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amountInUSD",
+						"type": "uint256"
+					}
+				],
+				"name": "_convertUSDToETH",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_auctionId",
+						"type": "uint256"
+					}
+				],
+				"name": "_isBidder",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "auctionBidsMapping",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "auctionsList",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address payable",
+						"name": "seller",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "itemInformation",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "startPrice",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "highestBid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "highestBidder",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "endTimstamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum AuctionMarket.Status",
+						"name": "status",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_auctionId",
+						"type": "uint256"
+					}
+				],
+				"name": "bid",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_newFee",
+						"type": "uint256"
+					}
+				],
+				"name": "changeFee",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_auctionId",
+						"type": "uint256"
+					}
+				],
+				"name": "endAuction",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "factory",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "fee",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAuctionsList",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address payable",
+								"name": "seller",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "itemInformation",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "startPrice",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "highestBid",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "highestBidder",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "endTimstamp",
+								"type": "uint256"
+							},
+							{
+								"internalType": "enum AuctionMarket.Status",
+								"name": "status",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct AuctionMarket.Auction[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_auctionId",
+						"type": "uint256"
+					}
+				],
+				"name": "getUserBidAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_itemInfo",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_initialPrice",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_duration",
+						"type": "uint256"
+					}
+				],
+				"name": "startAuction",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_auctionId",
+						"type": "uint256"
+					}
+				],
+				"name": "withdrawBid",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"marketplace-contract/AuctionMarket.sol": "AuctionMarket"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"marketplace-contract/AuctionMarket.sol": {
+			"keccak256": "0xc89ba42fe276163b8d315652678f3e0967293d9c8fea0a19101809736c9223a1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://dccb07788c4c27bd45b727c9a17c1e77f7f5dfb456ecce6f47c1241c019efb53",
+				"dweb:/ipfs/QmXydYZ5369T3D4AbZ4gc5Am6pV18bEBw5dFmTX9g9Hn16"
+			]
+		},
+		"marketplace-contract/IFactory.sol": {
+			"keccak256": "0x594bedd6dc22251641d10a27e006be396eb9198f46ddad4212c5c6f61e56dca4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bc8a583bc4d10fa4539b0e7ffc55d8cbd91ecad7961ee31a978dd09704df9252",
+				"dweb:/ipfs/QmRnMzutGQnewxheXf1F8xWrsWxsBXxp6C8h81eu8LSqcK"
+			]
+		}
+	},
+	"version": 1
+}

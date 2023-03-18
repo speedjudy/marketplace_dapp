@@ -14,7 +14,7 @@ import AuctionContract from "../../artifacts/contracts/AuctionMarket.json";
 import contractsAddress from "../../artifacts/deployments/map.json";
 
 const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
-const auctionContractAddress = contractsAddress["5777"]["AuctionMarket"][0];
+const auctionContractAddress = "0x29Ea813e352dfF394156e36b5B18cd6Ac6EAfE93";
 
 const auctionStatusMap = { 0: "OPEN", 1: "ENDED" };
 

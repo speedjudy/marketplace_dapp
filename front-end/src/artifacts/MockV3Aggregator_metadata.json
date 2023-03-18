@@ -1,0 +1,367 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "_decimals",
+						"type": "uint8"
+					},
+					{
+						"internalType": "int256",
+						"name": "_initialAnswer",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "int256",
+						"name": "current",
+						"type": "int256"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "roundId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "updatedAt",
+						"type": "uint256"
+					}
+				],
+				"name": "AnswerUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "roundId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "startedBy",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "startedAt",
+						"type": "uint256"
+					}
+				],
+				"name": "NewRound",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "decimals",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "description",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "getAnswer",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint80",
+						"name": "_roundId",
+						"type": "uint80"
+					}
+				],
+				"name": "getRoundData",
+				"outputs": [
+					{
+						"internalType": "uint80",
+						"name": "roundId",
+						"type": "uint80"
+					},
+					{
+						"internalType": "int256",
+						"name": "answer",
+						"type": "int256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "startedAt",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "updatedAt",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint80",
+						"name": "answeredInRound",
+						"type": "uint80"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "getTimestamp",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "latestAnswer",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "latestRound",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "latestRoundData",
+				"outputs": [
+					{
+						"internalType": "uint80",
+						"name": "roundId",
+						"type": "uint80"
+					},
+					{
+						"internalType": "int256",
+						"name": "answer",
+						"type": "int256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "startedAt",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "updatedAt",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint80",
+						"name": "answeredInRound",
+						"type": "uint80"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "latestTimestamp",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "int256",
+						"name": "_answer",
+						"type": "int256"
+					}
+				],
+				"name": "updateAnswer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint80",
+						"name": "_roundId",
+						"type": "uint80"
+					},
+					{
+						"internalType": "int256",
+						"name": "_answer",
+						"type": "int256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_timestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_startedAt",
+						"type": "uint256"
+					}
+				],
+				"name": "updateRoundData",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "version",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"title": "MockV3Aggregator",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"notice": "Based on the FluxAggregator contractUse this contract when you need to test other contract's ability to read data from an aggregator contract, but how the aggregator got its answer is unimportant",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"marketplace-contract/MockV3Aggregator.sol": "MockV3Aggregator"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@chainlink/contracts/src/v0.6/interfaces/AggregatorInterface.sol": {
+			"keccak256": "0x83d92824853687feb62da3e8dc773e1e0adc3267393e279acda02c6367037f56",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ee1dcacb7aeb3b745351dccca2ae92ce1ea9681d4b3a98fef4b249988f934596",
+				"dweb:/ipfs/QmWNBDybqdq3UKH1F4CqnM5kNfpXbRCd1TsmHdHJjTzwg2"
+			]
+		},
+		"@chainlink/contracts/src/v0.6/interfaces/AggregatorV2V3Interface.sol": {
+			"keccak256": "0xd27c7958cc0447b90f98308345076ee7fc7e657a62e085db53b4b63d471cc765",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8821528e5eb9d8a1c5dcbe280908f3d1860b6146d92ab33b1f08966c47ef9e20",
+				"dweb:/ipfs/QmNsV5gcss6Kte2oaZof6i2Xw4e8ffcsDBzf1Sdhb471pe"
+			]
+		},
+		"@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol": {
+			"keccak256": "0x7171939fd22c628f15406eda07bb4de4f0fda4808790f8334e5b9e1a7ca90f8a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b085262fc0889ef3079b0abbe56aa009550f50c7976a67a21c1617fdda2504ce",
+				"dweb:/ipfs/QmdqjNoPJsdgH7CN1x2yoroFQsdNNg16woFasSQXR83sWU"
+			]
+		},
+		"marketplace-contract/MockV3Aggregator.sol": {
+			"keccak256": "0xfdce8e82c988d209794c893020047744719bf92db6c7d1df0d65bf284ded056c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1e8b6f64e1f36b743735d7fdd6745decbd43adbf097ba9309fd8ef5f878b1c47",
+				"dweb:/ipfs/QmWZxzgMcwYDX2o93WqyxcTho9GFapmPnMXGYupAabwVBe"
+			]
+		}
+	},
+	"version": 1
+}

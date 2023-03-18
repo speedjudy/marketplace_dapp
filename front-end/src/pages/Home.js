@@ -14,9 +14,9 @@ import StoreContract from "../artifacts/contracts/Store.json";
 import contractsAddress from "../artifacts/deployments/map.json";
 import networks from "../utils/networksMap.json";
 
-const Marketaddress = contractsAddress["5777"]["Market"][0];
-const factoryAddress = contractsAddress["5777"]["StoreFactory"][0];
-const auctionContractAddress = contractsAddress["5777"]["AuctionMarket"][0];
+const Marketaddress = "0xd9f76F8649104151fe46D9A49b5f3821b31891E8"; // "0xd9f76F8649104151fe46D9A49b5f3821b31891E8";
+const factoryAddress = "0x2a7737EC3376d1C06612864244b26589D1c542dC"; // "0x2a7737EC3376d1C06612864244b26589D1c542dC";
+const auctionContractAddress = "0x29Ea813e352dfF394156e36b5B18cd6Ac6EAfE93"; // "0x29Ea813e352dfF394156e36b5B18cd6Ac6EAfE93";
 const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
 
 const useStyles = makeStyles((theme) => ({
@@ -159,7 +159,7 @@ function Home() {
   }
 
   // ganache network is used for testing purposes
-  const currentNetwork = networks["1337"];
+  const currentNetwork = networks["80001"];
   const isGoodNet = data.network === currentNetwork;
   const isConnected = data.account !== "";
 

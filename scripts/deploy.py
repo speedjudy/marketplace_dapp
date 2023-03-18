@@ -4,6 +4,8 @@ from scripts.helper_scripts import get_account, LOCAL_BLOCKCHAINS, deploy_mock
 def deploy():
     admin = get_account()
 
+    print(admin)
+
     if network.show_active() in LOCAL_BLOCKCHAINS:
         price_feed = deploy_mock()
 

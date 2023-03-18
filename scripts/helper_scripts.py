@@ -2,7 +2,7 @@ from web3.main import Web3
 from brownie import config, network, accounts, Contract, MockV3Aggregator
 
 
-LOCAL_BLOCKCHAINS = ["ganache-local", "development"]
+LOCAL_BLOCKCHAINS = ["ganache-local", "development", "polygon-test"]
 
 FORKED_BLOCHCHAINS = ["polygon-main-fork", "polygone-mainnet-dev", "mainnet-fork"]
 
@@ -17,6 +17,7 @@ def get_account(index=None):
         if index is not None:
             return accounts[index]
         else:
+            print(accounts[0])
             return accounts[0]
     else:
         return accounts.add(config["wallets"]["from_key"])

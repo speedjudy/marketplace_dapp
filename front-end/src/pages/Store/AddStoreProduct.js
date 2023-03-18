@@ -107,7 +107,7 @@ function AddProduct() {
   };
 
   // ganache network is used for testing purposes
-  const currentNetwork = networks["1337"];
+  const currentNetwork = networks["80001"];
   const isGoodNet = data.network === currentNetwork;
   const isConnected = data.account !== "";
 

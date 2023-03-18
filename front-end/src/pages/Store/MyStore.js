@@ -25,9 +25,10 @@ import StoreContract from "../../artifacts/contracts/Store.json";
 import contractsAddress from "../../artifacts/deployments/map.json";
 import networks from "../../utils/networksMap.json";
 
-const factoryAddress = contractsAddress["5777"]["StoreFactory"][0];
-
+const factoryAddress = "0x2a7737EC3376d1C06612864244b26589D1c542dC";
+console.log(window.ethereum);
 const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
+// const provider = new ethers.providers.JsonRpcProvider("https://rpc-mumbai.maticvigil.com/v1/d0546eda7c9df648a79a1d83d90a618b4f3a1838");
 
 const orderStatus = { 0: "PENDING", 1: "SENT", 2: "COMPLETED" };
 
@@ -86,6 +87,7 @@ function MyStore() {
   };
 
   const getStore = async () => {
+
     setHasStore(false);
 
     const factory = new ethers.Contract(
@@ -93,7 +95,6 @@ function MyStore() {
       StoreFactoryContract.abi,
       provider
     );
-
     const marketStores = await factory.getAllStores();
 
     const myStore = marketStores.filter(
@@ -119,6 +120,10 @@ function MyStore() {
       StoreFactoryContract.abi,
       signer
     );
+
+    console.log("Provider=", provider);
+
+    console.log("factory=", factory)
 
     if (!hasStore) {
       try {
@@ -153,6 +158,7 @@ function MyStore() {
         setLoading(false);
       } catch (err) {
         setLoading(false);
+        console.log(err);
         window.alert("An error has occured, Please try again");
       }
     }
@@ -273,7 +279,7 @@ function MyStore() {
   }, [storeInSaleProducts.length, data.account]);
 
   // ganache network is used for testing purposes
-  const currentNetwork = networks["1337"];
+  const currentNetwork = networks["80001"];
   const isGoodNet = data.network === currentNetwork;
   const isConnected = data.account !== "";
 

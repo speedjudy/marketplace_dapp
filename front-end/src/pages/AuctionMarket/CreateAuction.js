@@ -12,7 +12,7 @@ import contractsAddress from "../../artifacts/deployments/map.json";
 import networks from "../../utils/networksMap.json";
 
 const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
-const auctionContractAddress = contractsAddress["5777"]["AuctionMarket"][0];
+const auctionContractAddress = "0x29Ea813e352dfF394156e36b5B18cd6Ac6EAfE93";
 
 const useStyles = makeStyles((theme) => ({
   Container: {
@@ -118,7 +118,7 @@ function CreateAuction() {
   };
 
   // ganache network is used for testing purposes
-  const currentNetwork = networks["1337"];
+  const currentNetwork = networks["80001"];
   const isGoodNet = data.network === currentNetwork;
   const isConnected = data.account !== "";
 

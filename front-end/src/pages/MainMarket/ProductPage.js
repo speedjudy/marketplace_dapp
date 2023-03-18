@@ -12,7 +12,7 @@ import MarketContract from "../../artifacts/contracts/Market.json";
 import contractsAddress from "../../artifacts/deployments/map.json";
 
 const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
-const Marketaddress = contractsAddress["5777"]["Market"][0];
+const Marketaddress = "0xd9f76F8649104151fe46D9A49b5f3821b31891E8";
 
 const statusMap = { 1: "IN SALE", 2: "PENDING", 3: "SENT", 4: "SOLD" };
 

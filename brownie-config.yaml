@@ -18,3 +18,5 @@ networks:
     - eth-usd-feed: "0x8A753747A1Fa494EC906cE90E9f37563A8AF630e"
   kovan:
     - eth-usd-feed: "0x9326BFA02ADD2366b30bacB125260Af641031331"
+  polygon-test:
+    - eth-usd-feed: "0xd0D5e3DB44DE05E9F294BB0a3bEEaF030DE24Ada"
