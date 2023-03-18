@@ -33,12 +33,16 @@ const useStyles = makeStyles((theme) => ({
     gap: theme.spacing(2),
   },
 }));
-
+let tempProductsAry = [{image: "https://img.freepik.com/free-vector/flat-design-illustrated-nft-concept_23-2148958535.jpg?size=338&ext=jpg", name: "product-1", price: 200, store: 1, productId: 1},
+{image: "https://img.freepik.com/free-vector/flat-design-illustrated-nft-concept_23-2148958535.jpg?size=338&ext=jpg", name: "product-2", price: 200, store: 1, productId: 2},
+{image: "https://img.freepik.com/free-vector/flat-design-illustrated-nft-concept_23-2148958535.jpg?size=338&ext=jpg", name: "product-3", price: 200, store: 1, productId: 3},
+{image: "https://img.freepik.com/free-vector/flat-design-illustrated-nft-concept_23-2148958535.jpg?size=338&ext=jpg", name: "product-4", price: 200, store: 1, productId: 4}];
 function MarketPage() {
   const classes = useStyles();
 
   const data = useSelector((state) => state.blockchain.value);
   const [allProducts, setAllProducts] = useState([]);
+  const [tempProducts, setTempProducts] = useState(tempProductsAry);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
 
@@ -106,6 +110,14 @@ function MarketPage() {
   }
 
   function findProduct() {
+    console.log(search);
+    let new_ary = [];
+    for (let i = 0; i < tempProductsAry.length; i++) {
+      if (tempProductsAry[i].name.indexOf(search) > -1) {
+        new_ary.push(tempProductsAry[i]);
+      }
+    }
+    setTempProducts(new_ary);
     if (search !== "") {
       setLoading(true);
       const foundProducts = allProducts.filter((p) =>
@@ -115,11 +127,18 @@ function MarketPage() {
       setLoading(false);
     }
   }
+  function handleSearch(value) {
+    setSearch(value);
+
+    console.log(search);
+  }
 
   // ganache network is used for testing purposes
   const currentNetwork = networks["80001"];
-  const isGoodNet = data.network === currentNetwork;
-  const isConnected = data.account !== "";
+  const isGoodNet = true;
+  const isConnected = true;
+  // const isGoodNet = data.network === currentNetwork;
+  // const isConnected = data.account !== "";
 
   useEffect(() => {
     loadProducts();
@@ -138,7 +157,7 @@ function MarketPage() {
                   className="me-2"
                   aria-label="Search"
                   onChange={(e) => {
-                    setSearch(e.target.value);
+                    handleSearch(e.target.value);
                   }}
                 />
                 <Button
@@ -156,7 +175,8 @@ function MarketPage() {
               </Form>
               <Container>
                 <Row className="mt-5">
-                  {allProducts.map((product, id) => {
+                  {/* {allProducts.map((product, id) => { */}
+                  {tempProducts.map((product, id) => {
                     return (
                       <Col style={{ marginBottom: "40px" }} md={3} key={id}>
                         <Card style={{ width: "16rem" }} key={id}>

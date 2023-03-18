@@ -36,6 +36,10 @@ function Home() {
   const [auctions, setAuctions] = useState([]);
   const [products, setProducts] = useState([]);
   const [allStores, setAllStores] = useState([]);
+  const [tempProducts, setTempProducts] = useState([{image: "https://img.freepik.com/free-vector/flat-design-illustrated-nft-concept_23-2148958535.jpg?size=338&ext=jpg", name: "product-1", price: 200, store: 1, productId: 1},
+  {image: "https://img.freepik.com/free-vector/flat-design-illustrated-nft-concept_23-2148958535.jpg?size=338&ext=jpg", name: "product-2", price: 200, store: 1, productId: 2},
+  {image: "https://img.freepik.com/free-vector/flat-design-illustrated-nft-concept_23-2148958535.jpg?size=338&ext=jpg", name: "product-3", price: 200, store: 1, productId: 3},
+  {image: "https://img.freepik.com/free-vector/flat-design-illustrated-nft-concept_23-2148958535.jpg?size=338&ext=jpg", name: "product-4", price: 200, store: 1, productId: 4}]);
 
   async function loadAuctions() {
     const signer = provider.getSigner();
@@ -160,8 +164,10 @@ function Home() {
 
   // ganache network is used for testing purposes
   const currentNetwork = networks["80001"];
-  const isGoodNet = data.network === currentNetwork;
-  const isConnected = data.account !== "";
+  // const isGoodNet = data.network === currentNetwork;
+  // const isConnected = data.account !== "";
+  const isConnected = true;
+  const isGoodNet = true;
 
   useEffect(() => {
     loadProducts();
@@ -174,7 +180,8 @@ function Home() {
         {isConnected ? (
           isGoodNet ? (
             <>
-              {products.length !== 0 ? (
+              {[1,2].length !== 0 ? (
+              // {products.length !== 0 ? (
                 <Container>
                   <Row style={{ display: "flex" }}>
                     <Col className="col-md-6">
@@ -193,7 +200,8 @@ function Home() {
                     <hr />
                   </Row>
                   <Row className="mt-5">
-                    {products.map((product, id) => {
+                    {tempProducts.map((product, id) => {
+                    // {products.map((product, id) => {
                       return (
                         <Col style={{ marginBottom: "40px" }} md={3} key={id}>
                           <Card style={{ width: "16rem" }} key={id}>

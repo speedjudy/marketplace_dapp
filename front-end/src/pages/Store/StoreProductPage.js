@@ -45,17 +45,29 @@ function StoreProductPage() {
   const [productReviews, setProductReviews] = useState([]);
   const [buyQuantity, setBuyQuantity] = useState(1);
 
+  // const [productState, setProductState] = useState({
+  //   seller: "",
+  //   name: "",
+  //   description: "",
+  //   image: "",
+  //   price: 0,
+  //   price_eth: 0,
+  //   quantity: 0,
+  //   numberOrders: 0,
+  //   has_quantity: true,
+  // });
   const [productState, setProductState] = useState({
-    seller: "",
-    name: "",
-    description: "",
-    image: "",
-    price: 0,
-    price_eth: 0,
-    quantity: 0,
-    numberOrders: 0,
-    has_quantity: true,
+    seller: 'storeOwner',
+    name: 'test',
+    description: 'It only takes a few moments to get a free API token from web3.storage. This token enables you to interact with the web3.storage service without using the main website.',
+    image: 'https://img.freepik.com/free-vector/flat-design-illustrated-nft-concept_23-2148958535.jpg?size=338&ext=jpg',
+    price: '1',
+    price_eth: '2',
+    quantity: '2',
+    numberOrders: 3,
+    has_quantity:true,
   });
+  
 
   const [loading, setLoading] = useState(false);
 
@@ -68,7 +80,7 @@ function StoreProductPage() {
   };
 
   const productDetails = async (store, product_id) => {
-    if (product_id !== undefined) {
+    // if (product_id !== undefined) {
       const productStore = new ethers.Contract(
         store,
         StoreContract.abi,
@@ -77,23 +89,34 @@ function StoreProductPage() {
       const storeOwner = await productStore.callStatic.owner();
       const details = await productStore.callStatic.storeProducts(product_id);
 
-      const imgUrl = details[3].replace("ipfs://", IPFS_GATEWAY);
-
-      convertPrice(utils.formatUnits(details[4])).then((res) => {
-        setProductState({
-          ...productState,
-          seller: storeOwner,
-          name: details[1],
-          description: details[2],
-          image: imgUrl,
-          price: utils.formatUnits(details[4]),
-          price_eth: utils.formatUnits(res),
-          quantity: Number(details[5]),
-          numberOrders: Number(details[6]),
-          has_quantity: quantityMap[details[7]],
-        });
+      const imgUrl = 'https://img.freepik.com/free-vector/flat-design-illustrated-nft-concept_23-2148958535.jpg?size=338&ext=jpg';
+      // const imgUrl = details[3].replace("ipfs://", IPFS_GATEWAY);
+      setProductState({
+        seller: 'storeOwner',
+        name: 'test',
+        description: 'It only takes a few moments to get a free API token from web3.storage. This token enables you to interact with the web3.storage service without using the main website, enabling you to incorporate files stored using web3.storage directly into your applications and services.',
+        image: imgUrl,
+        price: '1',
+        price_eth: '2',
+        quantity: '2',
+        numberOrders: 3,
+        has_quantity:true,
       });
-    }
+      // convertPrice(utils.formatUnits(details[4])).then((res) => {
+      //   setProductState({
+      //     ...productState,
+      //     seller: storeOwner,
+      //     name: details[1],
+      //     description: details[2],
+      //     image: imgUrl,
+      //     price: utils.formatUnits(details[4]),
+      //     price_eth: utils.formatUnits(res),
+      //     quantity: Number(details[5]),
+      //     numberOrders: Number(details[6]),
+      //     has_quantity: quantityMap[details[7]],
+      //   });
+      // });
+    // }
   };
 
   const getProductReviews = async (product_id) => {
@@ -169,7 +192,6 @@ function StoreProductPage() {
     productDetails(store, Number(id));
     getProductReviews(Number(id));
   }, [data.account, data.network]);
-
   return (
     <>
       <div className="row p-2">

@@ -50,7 +50,8 @@ function MyStore() {
 
   const [storeInSaleProducts, setstoreInSaleProducts] = useState([]);
   const [storeOrders, setstoreOrders] = useState([]);
-  const [hasStore, setHasStore] = useState(false);
+  const [hasStore, setHasStore] = useState(true);
+  // const [hasStore, setHasStore] = useState(false);
 
   const [currentTab, setCurrentTab] = useState("products");
   const [loading, setLoading] = useState(false);
@@ -88,7 +89,8 @@ function MyStore() {
 
   const getStore = async () => {
 
-    setHasStore(false);
+    setHasStore(true);
+    // setHasStore(false);
 
     const factory = new ethers.Contract(
       factoryAddress,
@@ -129,7 +131,7 @@ function MyStore() {
       try {
         const fee = await factory.callStatic.createStoreFee();
         const create_store_fee = await factory.callStatic._convertUSDToETH(fee);
-
+        
         const cid = await ipfsSaveContent(formInput.image);
         const imageURI = `ipfs://${cid}/${formInput.imageName}`;
 
@@ -146,7 +148,9 @@ function MyStore() {
 
         const dataCid = await ipfsSaveContent(files);
         const descriptionURI = `ipfs://${dataCid}/store.json`;
-
+        console.log('fee', fee);
+        console.log('create_store_fee', create_store_fee);
+        console.log('descriptionURI', descriptionURI);
         const create_store_tx = await factory.createStore(descriptionURI, {
           value: create_store_fee,
         });
@@ -177,74 +181,98 @@ function MyStore() {
     loadMyProducts();
   }
   async function loadMyProducts() {
-    if (userMarketItems.store !== "") {
-      const signer = provider.getSigner();
-      const myStoreAddress = userMarketItems.store;
-      const productStore = new ethers.Contract(
-        myStoreAddress,
-        StoreContract.abi,
-        signer
-      );
+    // if (userMarketItems.store !== "") {
+      // const signer = provider.getSigner();
+      // const myStoreAddress = userMarketItems.store;
+      // const productStore = new ethers.Contract(
+      //   myStoreAddress,
+      //   StoreContract.abi,
+      //   signer
+      // );
 
-      const storeProducts = await productStore.listStoreProducts();
+      // const storeProducts = await productStore.listStoreProducts();
 
-      const storeInSaleProducts = storeProducts.filter((p) => p[1] !== "");
-
-      if (storeInSaleProducts !== undefined) {
-        const items = storeInSaleProducts.map((p) => {
-          const imgUrl = p[3].replace("ipfs://", IPFS_GATEWAY);
+      // const storeInSaleProducts = storeProducts.filter((p) => p[1] !== "");
+      const storeInSaleProductsTemp = [0,1,2,3];
+      console.log(storeInSaleProductsTemp);
+      if (storeInSaleProductsTemp !== undefined) {
+        const items = storeInSaleProductsTemp.map((p) => {
+          const imgUrl = "https://img.freepik.com/free-vector/flat-design-illustrated-nft-concept_23-2148958535.jpg?size=338&ext=jpg";
+          // const imgUrl = p[3].replace("ipfs://", IPFS_GATEWAY);
           let item = {
-            productId: Number(p[0]),
-            name: p[1],
+            productId: p,
+            name: "bored" + p,
             image: imgUrl,
-            price: utils.formatUnits(p[4].toString(), "ether"),
-            productOrdersCount: Number(p[6]),
+            price: 120,
+            productOrdersCount: 2,
           };
+          // let item = {
+          //   productId: Number(p[0]),
+          //   name: p[1],
+          //   image: imgUrl,
+          //   price: utils.formatUnits(p[4].toString(), "ether"),
+          //   productOrdersCount: Number(p[6]),
+          // };
           return item;
         });
         setstoreInSaleProducts(items.reverse());
       }
-    }
+    // }
   }
 
   const loadMyOrders = async () => {
-    if (userMarketItems.store !== "") {
-      const signer = provider.getSigner();
-      const myStoreAddress = userMarketItems.store;
-      const productStore = new ethers.Contract(
-        myStoreAddress,
-        StoreContract.abi,
-        signer
-      );
+    // if (userMarketItems.store !== "") {
+      // const signer = provider.getSigner();
+      // const myStoreAddress = userMarketItems.store;
+      // const productStore = new ethers.Contract(
+      //   myStoreAddress,
+      //   StoreContract.abi,
+      //   signer
+      // );
 
-      const orders = await productStore.listStoreOrders();
-      const uncomplete_orders = orders.filter(
-        (o) => orderStatus[o[6]] !== "COMPLETED"
-      );
+      // const orders = await productStore.listStoreOrders();
+      // const uncomplete_orders = orders.filter(
+      //   (o) => orderStatus[o[6]] !== "COMPLETED"
+      // );
+      const uncomplete_orders = [4,3,2,1];
 
-      if (uncomplete_orders !== undefined) {
-        const items = await Promise.all(
-          uncomplete_orders.map(async (order) => {
-            const product_id = Number(order[1]);
-            const product = await productStore.callStatic.storeProducts(
-              product_id
-            );
+      // if (uncomplete_orders !== undefined) {
+        // const items = await Promise.all(
+        //   uncomplete_orders.map(async (order) => {
+        //     const product_id = Number(order[1]);
+        //     const product = await productStore.callStatic.storeProducts(
+        //       product_id
+        //     );
+
+        //     let item = {
+        //       orderId: Number(order[0]),
+        //       productId: product_id,
+        //       productName: product.name,
+        //       buyer: order[2],
+        //       quantity: Number(order[3]),
+        //       TotalbuyPrice: utils.formatUnits(order[4], "ether"),
+        //       status: orderStatus[order[6]],
+        //     };
+        //     return item;
+        //   })
+        // );
+        const items = uncomplete_orders.map((order) => {
+            const product_id = order;
 
             let item = {
-              orderId: Number(order[0]),
-              productId: product_id,
-              productName: product.name,
-              buyer: order[2],
-              quantity: Number(order[3]),
-              TotalbuyPrice: utils.formatUnits(order[4], "ether"),
-              status: orderStatus[order[6]],
+              orderId: order,
+              productId: order,
+              productName: 'order-'+order,
+              buyer: 'buyer',
+              quantity: 2,
+              TotalbuyPrice: 200,
+              status: 'pending',
             };
             return item;
-          })
-        );
+          });
         setstoreOrders(items.reverse());
-      }
-    }
+      // }
+    // }
   };
 
   const fillOrder = async (order_id) => {
@@ -280,9 +308,11 @@ function MyStore() {
 
   // ganache network is used for testing purposes
   const currentNetwork = networks["80001"];
-  const isGoodNet = data.network === currentNetwork;
-  const isConnected = data.account !== "";
-
+  // const isGoodNet = data.network === currentNetwork;
+  // const isConnected = data.account !== "";
+  const isGoodNet = true;
+  const isConnected = true;
+console.log('storeInSaleProducts', storeOrders);
   return (
     <>
       <div>
@@ -336,11 +366,22 @@ function MyStore() {
                                       <Card.Text>
                                         <Card.Text>{product.price} $</Card.Text>
                                       </Card.Text>
-                                      <a
+                                      {/* <a
                                         className="btn btn-primary"
                                         style={{ margin: "4px" }}
                                         href={
                                           "/store-product/" +
+                                          userMarketItems.store +
+                                          "/" +
+                                          product.productId
+                                        }
+                                        role="button"
+                                      > */}
+                                      <a
+                                        className="btn btn-primary"
+                                        style={{ margin: "4px" }}
+                                        href={
+                                          "/store-product/1" +
                                           userMarketItems.store +
                                           "/" +
                                           product.productId

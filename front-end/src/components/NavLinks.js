@@ -21,14 +21,14 @@ function NavLinks() {
                             <Nav.Link href="/">Home</Nav.Link>
                             <Nav.Link href="/my-products">My Products</Nav.Link>
                             <Nav.Link href="/my-store">Store</Nav.Link>
-                            <NavDropdown
+                            {/* <NavDropdown
                                 id="nav-dropdown-dark-example"
                                 title="Add"
                                 menuVariant="dark"
                             >
                                 <NavDropdown.Item href="/add-product">Product</NavDropdown.Item>
                                 <NavDropdown.Item href="/create-auction">Auction</NavDropdown.Item>
-                            </NavDropdown>
+                            </NavDropdown> */}
                         </Nav>
                         <Account />
                     </Navbar.Collapse>

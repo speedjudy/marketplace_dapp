@@ -149,8 +149,10 @@ function MyProductsPage() {
 
   // ganache network is used for testing purposes
   const currentNetwork = networks["80001"];
-  const isGoodNet = data.network === currentNetwork;
-  const isConnected = data.account !== "";
+  // const isGoodNet = data.network === currentNetwork;
+  // const isConnected = data.account !== "";
+  const isGoodNet = true;
+  const isConnected = true;
 
   return (
     <>
@@ -168,8 +170,12 @@ function MyProductsPage() {
                 <TabPanel value="sell">
                   <Container>
                     <Row className="mt-5">
-                      {saleProducts.length !== 0 ? (
-                        saleProducts.map((product, id) => {
+                      {/* {saleProducts.length !== 0 ? ( */}
+                      {[1,2].length !== 0 ? (
+                        [{image: "https://img.freepik.com/free-vector/flat-design-illustrated-nft-concept_23-2148958535.jpg?size=338&ext=jpg", name: "product-1", price: 200, store: 1, productId: 1},
+                        {image: "https://img.freepik.com/free-vector/flat-design-illustrated-nft-concept_23-2148958535.jpg?size=338&ext=jpg", name: "product-2", price: 200, store: 1, productId: 2},
+                        {image: "https://img.freepik.com/free-vector/flat-design-illustrated-nft-concept_23-2148958535.jpg?size=338&ext=jpg", name: "product-3", price: 200, store: 1, productId: 3},
+                        {image: "https://img.freepik.com/free-vector/flat-design-illustrated-nft-concept_23-2148958535.jpg?size=338&ext=jpg", name: "product-4", price: 200, store: 1, productId: 4}].map((product, id) => {
                           return (
                             <Col
                               md={3}
@@ -226,8 +232,12 @@ function MyProductsPage() {
                   <Container>
                     <h3 className="text-center p-1">Products</h3>
                     <Row className="mt-5">
-                      {buyProducts.length !== 0 ? (
-                        buyProducts.map((product, id) => {
+                      {[1,2].length !== 0 ? (
+                      // {buyProducts.length !== 0 ? (
+                        [{image: "https://img.freepik.com/free-vector/flat-design-illustrated-nft-concept_23-2148958535.jpg?size=338&ext=jpg", name: "product-1", price: 200, store: 1, productId: 1},
+                        {image: "https://img.freepik.com/free-vector/flat-design-illustrated-nft-concept_23-2148958535.jpg?size=338&ext=jpg", name: "product-2", price: 200, store: 1, productId: 2},
+                        {image: "https://img.freepik.com/free-vector/flat-design-illustrated-nft-concept_23-2148958535.jpg?size=338&ext=jpg", name: "product-4", price: 200, store: 1, productId: 4}].map((product, id) => {
+                          // buyProducts.map((product, id) => {
                           return (
                             <Col md={3} style={{ margin: "20px" }} key={id}>
                               <Card style={{ width: "16rem" }} key={id}>
@@ -265,8 +275,12 @@ function MyProductsPage() {
                     </Row>
                     <h3 className="text-center p-2">Orders</h3>
                     <Row className="mt-5">
-                      {allMyOrders.length !== 0 ? (
-                        allMyOrders.map((order, id) => {
+                      {[1,2].length !== 0 ? (
+                      // {allMyOrders.length !== 0 ? (
+                        [{image: "https://img.freepik.com/free-vector/flat-design-illustrated-nft-concept_23-2148958535.jpg?size=338&ext=jpg", name: "product-1", price: 200, store: 1, productId: 1},
+                        {image: "https://img.freepik.com/free-vector/flat-design-illustrated-nft-concept_23-2148958535.jpg?size=338&ext=jpg", name: "product-2", price: 200, store: 1, productId: 2},
+                        {image: "https://img.freepik.com/free-vector/flat-design-illustrated-nft-concept_23-2148958535.jpg?size=338&ext=jpg", name: "product-4", price: 200, store: 1, productId: 4}].map((order, id) => {
+                          // allMyOrders.map((order, id) => {
                           return (
                             <Col md={3} style={{ margin: "20px" }} key={id}>
                               <Card style={{ width: "16rem" }} key={id}>

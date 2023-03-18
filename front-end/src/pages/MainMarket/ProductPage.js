@@ -22,16 +22,27 @@ function ProductPage() {
   const data = useSelector((state) => state.blockchain.value);
 
   const [productState, setProductState] = useState({
-    seller: "",
-    name: "",
-    description: "",
-    image: "",
-    price: 0,
-    price_eth: 0,
-    buy_price_in_ETH: 0,
-    buyer: "",
-    status: "",
+    seller: "storeOwner",
+    name: "test-product",
+    description: "It only takes a few moments to get a free API token from web3.storage. This token enables you to interact with the web3.storage service without using the main website.",
+    image: "https://img.freepik.com/free-vector/flat-design-illustrated-nft-concept_23-2148958535.jpg?size=338&ext=jpg",
+    price: '2',
+    price_eth: "1",
+    buy_price_in_ETH: "1",
+    buyer: "buyer",
+    status: "pending",
   });
+  // const [productState, setProductState] = useState({
+  //   seller: "",
+  //   name: "",
+  //   description: "",
+  //   image: "",
+  //   price: 0,
+  //   price_eth: 0,
+  //   buy_price_in_ETH: 0,
+  //   buyer: "",
+  //   status: "",
+  // });
 
   const [loading, setLoading] = useState(false);
 
